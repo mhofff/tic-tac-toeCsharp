@@ -8,17 +8,15 @@ namespace Program
     {
       int[] slots = {0,0,0,0,0,0,0,0,0};
       Console.WriteLine("tic tac toe");
-      
+      printTable(slots);
       int pickNow = Convert.ToInt32(Console.ReadLine());
-      Console.WriteLine(pickNow);
-      printTable(slots);
+      //Console.WriteLine(pickNow);
       //slots[0] = 1;
-      printTable(slots);
-      if (pickNow == slots[0] || pickNow == slots[2] || pickNow == slots[6] || pickNow == slots[8] )
+      //if (pickNow == slots[0] || pickNow == slots[2] || pickNow == slots[6] || pickNow == slots[8] )
+      while (slots.Any(d => d == 0))
       {
-        
+        pickNow = Convert.ToInt32(Console.ReadLine());
       }
-
 
 
     }
