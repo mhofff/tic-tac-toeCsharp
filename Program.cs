@@ -1,4 +1,6 @@
-﻿namespace Program
+﻿using System.Reflection.PortableExecutable;
+
+namespace Program
 {
   class TicTacToe
   {
@@ -10,12 +12,53 @@
       int pickNow =  -1;
       //while (slots.Any(d => d == '?'))
       //{
-        pickNow = Convert.ToInt32(Console.ReadLine());
+      pickNow = Convert.ToInt32(Console.ReadLine());
         //PlayerChose(pickNow);
+        
         //slots[pickNow] = 'X';
-        PlayerChose(pickNow, slots);
+        //first iteration
+        
+      PlayerChose(pickNow, slots);
+      if (pickNow == 0 || pickNow == 2 || pickNow == 6 || pickNow == 8)
+      {
+        MachineChose(4,slots);
+        printTable(slots);
+        
+      }
+      else if (pickNow == 1 || pickNow == 3 || pickNow == 5 || pickNow == 7)
+      {
+        MachineChose(4, slots);
+        printTable(slots);
+      }
+      else
+      {
+        MachineChose(0,slots);
+        printTable(slots);
+      }
+      pickNow = Convert.ToInt32(Console.ReadLine());
+      PlayerChose(pickNow, slots);
+
+
+
+      /*if (slots[0] == '?')
+      {
+        
+      }
+      else if (slots[2] == '?')
+      {
+        
+      }
+      else if (slots[6] == '?')
+      {
+        
+      }
+      else if (slots[8] == '?')
+      {
+        
+      }
+
         //printTable(slots);
-        if (pickNow == 0 || pickNow == 2 || pickNow == 6 || pickNow == 8)
+        /*if (pickNow == 0 || pickNow == 2 || pickNow == 6 || pickNow == 8)
         {
           MachineChose(4,slots);
           printTable(slots);
