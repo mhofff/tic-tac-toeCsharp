@@ -1,44 +1,112 @@
-﻿using System;
-using System.Runtime.InteropServices;
-namespace Program
+﻿namespace Program
 {
   class TicTacToe
   {
     public static void Main(string[] agrs)
     {
-      int[] slots = {0,0,0,0,0,0,0,0,0};
+      char[] slots = {'?','?','?','?','?','?','?','?','?'};
       Console.WriteLine("tic tac toe");
       printTable(slots);
-      int pickNow = Convert.ToInt32(Console.ReadLine());
+      int pickNow =  -1;
+      //while (slots.Any(d => d == '?'))
+      //{
+        pickNow = Convert.ToInt32(Console.ReadLine());
+        //PlayerChose(pickNow);
+        //slots[pickNow] = 'X';
+        PlayerChose(pickNow, slots);
+        //printTable(slots);
+        if (pickNow == 0 || pickNow == 2 || pickNow == 6 || pickNow == 8)
+        {
+          MachineChose(4,slots);
+          printTable(slots);
+
+          if (pickNow == 0)
+          {
+
+            pickNow = Convert.ToInt32(Console.ReadLine());
+            PlayerChose(pickNow, slots);
+
+
+          if (pickNow == 6)
+          {
+
+            MachineChose(3,slots);
+            printTable(slots);
+
+          }
+          else
+          {
+
+            MachineChose(1,slots);
+            printTable(slots);
+
+          }
+          
+
+          }
+          
+          
+        }
+        else if (pickNow == 1 || pickNow == 3 || pickNow == 5 || pickNow == 7)
+        {
+
+          MachineChose(4,slots);
+          printTable(slots);
+          pickNow = Convert.ToInt32(Console.ReadLine());
+
+        }
+        else
+        {
+
+          MachineChose(6,slots);
+          printTable(slots);
+          pickNow = Convert.ToInt32(Console.ReadLine());
+
+        }
+        
+      //}
+      
       //Console.WriteLine(pickNow);
       //slots[0] = 1;
       //if (pickNow == slots[0] || pickNow == slots[2] || pickNow == slots[6] || pickNow == slots[8] )
-      while (slots.Any(d => d == 0))
-      {
+      //while (slots.Any(d => d == 0))
+      /*{
         pickNow = Convert.ToInt32(Console.ReadLine());
-      }
+
+      }*/
 
 
     }
-    public static void printTable(int[] array)
+    public static void printTable( char[] array)
+
     {
-      if (array.All(x => x == 0))//masive only use zero
+      if (array.All(x => x == '?'))//masive only use zero
       {
-        Console.WriteLine("¹? | ²? | ³?");
+        Console.WriteLine("⁰? | ¹? | ²?");
         Console.WriteLine("————————————");
-        Console.WriteLine("⁴? | ⁵? | ⁶?");
+        Console.WriteLine("³? | ⁴? | ⁵?");
         Console.WriteLine("————————————");
-        Console.WriteLine("⁷? | ⁸? | ⁹?");
+        Console.WriteLine("⁶? | ⁷? | ⁸?");
       }
-      else if (array.Any(c => c != 0))
+      else if (array.Any(c => c != '?'))
       {
-        Console.WriteLine($"{array[0]} | ²{array[1]} | ³{array[2]}");
+        Console.WriteLine($"⁰{array[0]} | ¹{array[1]} | ²{array[2]}");
         Console.WriteLine("————————————");
-        Console.WriteLine($"⁴{array[3]} | ⁵{array[4]} | ⁶{array[5]}");
+        Console.WriteLine($"³{array[3]} | ⁴{array[4]} | ⁵{array[5]}");
         Console.WriteLine("————————————");
-        Console.WriteLine($"⁷{array[6]} | ⁸{array[7]} | ⁹{array[8]}");
+        Console.WriteLine($"⁶{array[6]} | ⁷{array[7]} | ⁸{array[8]}");
       }
-      
     }
+
+    public static void PlayerChose(int x, char[] arrayslots)
+    {
+      arrayslots[x] = 'X';
+    }
+    public static void MachineChose(int x, char[]arrayslots)
+    {
+      arrayslots[x] = 'O';
+    }
+    
   }
+
 }
