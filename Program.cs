@@ -9,23 +9,65 @@ namespace Program
       char[] slots = {'?','?','?','?','?','?','?','?','?'};
       Console.WriteLine("tic tac toe");
       printTable(slots);
-      int pickNow =  -1;
+      int PlayerPickNow = -1;
       //while (slots.Any(d => d == '?'))
       //{
-      pickNow = Convert.ToInt32(Console.ReadLine());
-        //PlayerChose(pickNow);
-        
+        // !
+        // ?
+        // ToDO
+        // *
+        //better comments
+        // PlayerChose(pickNow);  
         //slots[pickNow] = 'X';
         //first iteration
+      PlayerPickNow = Convert.ToInt32(Console.ReadLine());
+      PlayerChose(PlayerPickNow, slots);
+      if(slots[4] == '?')
+      {
+        MachineChose(4,slots);
+        PlayerPickNow = Convert.ToInt32(Console.ReadLine());
+        PlayerChose(PlayerPickNow, slots);
+
         
-      PlayerChose(pickNow, slots);
-      if (pickNow == 0 || pickNow == 2 || pickNow == 6 || pickNow == 8)
+
+      }
+      else
+      {
+        MachineChose(0,slots);
+      }
+      
+
+
+
+
+
+
+
+      /*if (PlayerPickNow == 0 || PlayerPickNow == 2 || PlayerPickNow == 6 || PlayerPickNow == 8)
       {
         MachineChose(4,slots);
         printTable(slots);
+        PlayerPickNow = Convert.ToInt32(Console.ReadLine());
+        PlayerChose(PlayerPickNow, slots);
+        if (slots[0] == 'X' && slots[6] == 'X')
+        {
+          MachineChose(3,slots);
+          printTable(slots);
+          PlayerPickNow = Convert.ToInt32(Console.ReadLine());
+          PlayerChose(PlayerPickNow, slots);
+          if (PlayerPickNow == 2)
+          {
+            MachineChose(1,slots);
+            printTable(slots);
+          }
+          
+        }
+
+
+      
         
       }
-      else if (pickNow == 1 || pickNow == 3 || pickNow == 5 || pickNow == 7)
+      else if (PlayerPickNow == 1 || PlayerPickNow == 3 || PlayerPickNow == 5 || PlayerPickNow == 7)
       {
         MachineChose(4, slots);
         printTable(slots);
@@ -35,8 +77,9 @@ namespace Program
         MachineChose(0,slots);
         printTable(slots);
       }
-      pickNow = Convert.ToInt32(Console.ReadLine());
-      PlayerChose(pickNow, slots);
+      //pickNow = Convert.ToInt32(Console.ReadLine());
+      //PlayerChose(pickNow, slots);
+      //if (slots[4] == 'O' || slots[0] == 'X' || )
 
 
 
