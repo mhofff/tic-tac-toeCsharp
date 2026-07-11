@@ -39,10 +39,11 @@
     {
       arrayslots[x] = 'O';
     }
-    public static void winGame()
+    public static void WinCondithion(char[] arrays)
     {
-      Console.WriteLine();
-      return;
+      int [,] winarray = new int[4,2];
+      Console.WriteLine(winarray[1,2]);
+
     }
   
   
