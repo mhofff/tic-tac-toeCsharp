@@ -4,21 +4,23 @@
   {
     public static void Main(string[] agrs)
     {
+      int PlayerPickNow = -1;
       char[] slots = {'?','?','?','?','?','?','?','?','?'};
       Console.WriteLine("tic tac toe");
-      printTable(slots);
-      int PlayerPickNow = -1;
         // !
         // ?
         // ToDO
         // *
+      
+    
+      
+      
+      //!while ()
       PlayerPickNow = Convert.ToInt32(Console.ReadLine());
       PlayerChose(PlayerPickNow, slots);
-      Console.Clear();
-      while (slots.Any(x => x == '?'))
-      {
-        Console.WriteLine("");
-      }
+      //?Console.Clear();
+      Console.WriteLine(WinCondithion(slots, null));
+      
     }
       
     public static void printTable( char[] array)
@@ -39,10 +41,26 @@
     {
       arrayslots[x] = 'O';
     }
-    public static void WinCondithion(char[] arrays)
+    public static bool WinCondithion(char[] arrays, char? fo)
     {
-      int [,] winarray = new int[4,2];
-      Console.WriteLine(winarray[1,2]);
+      /*if (arrays )
+      {
+        fo = 'X';
+        return true;
+      }
+      else if ( )
+      {
+        fo = 'O';
+        return true;
+      }
+      else
+      {
+
+        return false;
+      }*/
+      fo = 'b';
+      return true;
+      
 
     }
   
